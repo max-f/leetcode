@@ -1,27 +1,32 @@
 fun main(args: Array<String>) {
-    val nums: List<Int> = listOf(1, -1, 0, 1, -2, -4)
-    val t = ThreeSum()
-    val result: List<List<Int>> = t.threeSum(nums)
-    result.forEach { triplet -> println(triplet.joinToString(separator = ", ", prefix = "[", postfix = "]")) }
+    val s: Solution = Solution()
+    val list: List<List<Int>> = s.threeSum(intArrayOf(-1, 0, 1, 2, -1, -4))
+    println(list.size)
+    list.forEach { triplet -> println(triplet.joinToString(separator = ", ", prefix = "[", postfix = "]")) }
 }
 
-class ThreeSum {
-    fun threeSum(numbers: List<Int>): List<List<Int>> {
-        val input: List<Int> = numbers.sorted()
+class Solution {
 
-        val answer: MutableSet<List<Int>> = mutableSetOf()
+    fun threeSum(nums: IntArray): List<List<Int>> {
+        nums.sort()
+        var answer: Set<List<Int>> = mutableSetOf()
+//        var answer: List<List<Int>> = mutableListOf()
 
-        for (ax in input.indices) {
-            for (bx in ax + 1 until input.size) {
-                for (cx in bx + 1 until input.size) {
-                    val sum: Int = input[ax] + input[bx] + input[cx]
-                    if (sum == 0) {
-                        answer.add(listOf(input[ax], input[bx], input[cx]))
+        for (ax in nums.indices) {
+            for (bx in ax + 1 until nums.size) {
+                for (cx in bx + 1 until nums.size) {
+                    val a = nums[ax]
+                    val b = nums[bx]
+                    val c = nums[cx]
+
+                    if (a + b + c == 0) {
+                        answer = answer.plusElement(listOf(a, b, c))
                     }
                 }
             }
         }
+
         return answer
-            .map { it -> it.toList() }
+            .map { entry -> entry.toList() }
     }
 }
