@@ -20,16 +20,14 @@ cab
 
 fun main(args: Array<String>) {
     val G = GenerateParentheses()
-//    val result: List<String> = G.createPermutations(listOf('a', 'b', 'c'))
-//    result.forEach { println(it) }
-    G.generateParenthesis(2)
+    G.generateParenthesis(3)
 }
 
 class GenerateParentheses {
     fun generateParenthesis(n: Int): List<String> {
-        val result: List<String> = listOf(")((())")
+        val permutations: List<String> = createPermutations("()".repeat(n).toList())
         val finalResult : MutableList<String> = mutableListOf()
-        for (variant in result) {
+        for (variant in permutations) {
             val pStack: Stack<Char> = Stack()
             for (c in variant) {
                 if (c == '(') {
@@ -43,21 +41,18 @@ class GenerateParentheses {
             }
         }
 
-
-        finalResult.forEach { println(it) }
-
-        return listOf()
+        return finalResult
     }
 
-    fun createPermutations(l: List<Char>): List<String> {
+    private fun createPermutations(l: List<Char>): List<String> {
         if (l.size <= 1) return listOf(l.joinToString())
-        val permutations: MutableList<String> =  mutableListOf()
+        val permutations: MutableSet<String> = mutableSetOf()
         for (i in l.indices) {
             val currentChar: Char = l[i]
             for (sublist in createPermutations(l.subList(0, i) + (l.subList(i + 1, l.size)))) {
                 permutations.add(currentChar + sublist)
             }
         }
-        return permutations
+        return permutations.toList()
     }
 }

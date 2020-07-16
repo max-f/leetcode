@@ -13,7 +13,7 @@ import common.ListNode
  * Example: 1 -> 2 -> 4, 1 -> 3 -> 4
  * Result: 1-> 1 -> 2 -> 3 -> 4 -> 4
  */
-fun main(args: Array<String>) {
+fun main() {
     val nodeA1 = ListNode(1)
     val nodeA2 = ListNode(2)
     val nodeA4 = ListNode(4)

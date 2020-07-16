@@ -9,7 +9,7 @@ import common.ListNode
  *     var next: ListNode? = null
  * }
  */
-fun main(args: Array<String>) {
+fun main() {
     var node1 = ListNode(1)
     var node2 = ListNode(2)
     var node3 = ListNode(3)
