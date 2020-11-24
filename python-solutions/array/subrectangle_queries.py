@@ -6,6 +6,7 @@ from typing import List
 Code for https://leetcode.com/problems/subrectangle-queries
 """
 
+
 class SubrectangleQueries:
     def __init__(self, rectangle: List[List[int]]):
         self.rectangle = rectangle
