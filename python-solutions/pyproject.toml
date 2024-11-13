@@ -1,0 +1,7 @@
+[project]
+name = "python-solutions"
+version = "0.1.0"
+description = "My leetcode solutions"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = []

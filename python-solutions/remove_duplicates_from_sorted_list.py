@@ -1,9 +1,7 @@
 #!/usr/bin/env python
 
-from typing import List
 
-
-def remove_element(nums: List[int]) -> int:
+def remove_element(nums: list[int]) -> int:
     i = 0
     removed = 0
     last_seen = None
